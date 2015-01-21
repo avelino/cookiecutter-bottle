@@ -1,0 +1,5 @@
+bottle
+beaker
+jinja2
+bottle-sqlalchemy
+sqlalchemy
