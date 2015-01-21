@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 import click
-from bottle import static_file, Bottle, run, Jinja2Template, TEMPLATE_PATH
+from bottle import static_file, Bottle, run, TEMPLATE_PATH
 from beaker.middleware import SessionMiddleware
 
 from {{cookiecutter.app_name}} import settings
@@ -9,10 +9,6 @@ from {{cookiecutter.app_name}}.routes import Routes
 
 
 TEMPLATE_PATH.insert(0, settings.TEMPLATE_PATH)
-Jinja2Template.settings = {
-    'extensions': ['jinja2.ext.autoescape'],
-    'autoescape': True
-}
 session_opts = {
     'session.type': 'file',
     'session.auto': True
