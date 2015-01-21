@@ -1,0 +1,12 @@
+{% raw %}<html>
+	<head>
+		<title>{% block title %}Bottle Boilerplate{% endblock %}</title>
+	</head>
+	<body>
+		<ul class="breadcrumb">
+		<li><a href="/">Home</a> <span class="divider">/</span></li>
+		<li><a href="/user/">Users</a> <span class="divider">/</span></li>
+		</ul>
+		{% block body %}{% endblock %}
+	</body>
+</html>{% endraw %}
