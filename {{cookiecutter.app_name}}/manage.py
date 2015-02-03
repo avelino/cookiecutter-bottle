@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+from __future__ import unicode_literals
 import os
 import click
 from bottle import static_file, Bottle, run, TEMPLATE_PATH
@@ -39,7 +40,7 @@ def cmds():
 @click.option('--debug', default=False,
               help=u'Set application server debug!')
 def runserver(port, ip, debug):
-    click.echo(u'Start server at: {}:{}'.format(ip, port))
+    click.echo('Start server at: {}:{}'.format(ip, port))
     run(app=app, host=ip, port=port, debug=debug, reloader=debug)
 
 
