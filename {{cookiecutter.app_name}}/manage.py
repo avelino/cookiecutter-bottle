@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+import os
 import click
 from bottle import static_file, Bottle, run, TEMPLATE_PATH
 from beaker.middleware import SessionMiddleware
@@ -31,7 +32,7 @@ def cmds():
 
 
 @cmds.command()
-@click.option('--port', default=8080, type=int,
+@click.option('--port', default=os.environ.get('PORT', 8080), type=int,
               help=u'Set application server port!')
 @click.option('--ip', default='0.0.0.0', type=str,
               help=u'Set application server ip!')
@@ -40,6 +41,15 @@ def cmds():
 def runserver(port, ip, debug):
     click.echo(u'Start server at: {}:{}'.format(ip, port))
     run(app=app, host=ip, port=port, debug=debug, reloader=debug)
+
+
+@cmds.command()
+def test():
+    import unittest
+    loader = unittest.TestLoader()
+    tests = loader.discover('tests')
+    testRunner = unittest.runner.TextTestRunner()
+    testRunner.run(tests)
 
 
 if __name__ == "__main__":
