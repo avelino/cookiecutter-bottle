@@ -2,6 +2,3 @@ bottle
 click
 beaker
 jinja2
-bottle-sqlalchemy
-sqlalchemy
-fake-factory
